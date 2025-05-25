@@ -1,453 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weekly Grocery List</title>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script type="text/javascript">
-</head>
-<body>
-
-    <div class="form-container">
-        <div class="form-header">
-            Weekly Grocery List
-        </div>
-<form id="foodSelectionForm" action="javascript:void(0);" method="post" onsubmit="sendEmail(event)">
-
-        <!-- PROTEINS -->
-        <div class="category-header">PROTEINS</div>
-                    <div class="item">
-                <label>Fish</label>
-                <label><input type="checkbox" name="fish_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="fish_no" value="N"> N</label>
-                <input type="text" name="fish_x" class="input-field" placeholder="x">
-            </div>
-            <div class="item">
-                <label>Chicken</label>
-                <label><input type="checkbox" name="chicken_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="chicken_no" value="N"> N</label>
-                <input type="text" name="chicken_x" class="input-field" placeholder="x">
-            </div>
-            <div class="item">
-                <label>Beef</label>
-                <label><input type="checkbox" name="beef_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="beef_no" value="N"> N</label>
-                <input type="text" name="beef_x" class="input-field" placeholder="x">
-            </div>
-            <div class="item">
-                <label>Pork</label>
-                <label><input type="checkbox" name="pork_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="pork_no" value="N"> N</label>
-                <input type="text" name="pork_x" class="input-field" placeholder="x">
-            </div>
-            <div class="item">
-                <label>Lamb / Duck</label>
-                <label><input type="checkbox" name="lamb_duck_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="lamb_duck_no" value="N"> N</label>
-                <input type="text" name="lamb_duck_x" class="input-field" placeholder="x">
-            </div>
-            <div class="item">
-                <label>Eggs</label>
-                <label><input type="checkbox" name="eggs_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="eggs_no" value="N"> N</label>
-                <input type="text" name="eggs_x" class="input-field" placeholder="x">
-            </div>
-
-            <!-- GREEN LEAVES -->
-            <div class="category-header">GREEN LEAVES</div>
-            <div class="item">
-                <label>Cabbage</label>
-                <label><input type="checkbox" name="cabbage_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="cabbage_no" value="N"> N</label>
-                <input type="text" name="cabbage_x" class="input-field" placeholder="x">
-            </div>
-            <div class="item">
-                <label>Bok Choy</label>
-                <label><input type="checkbox" name="bok_choy_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="bok_choy_no" value="N"> N</label>
-                <input type="text" name="bok_choy_x" class="input-field" placeholder="x">
-            </div>
-            <div class="item">
-                <label>Rainbow Chard</label>
-                <label><input type="checkbox" name="rainbow_chard_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="rainbow_chard_no" value="N"> N</label>
-                <input type="text" name="rainbow_chard_x" class="input-field" placeholder="x">
-            </div>
-            <div class="item">
-                <label>Kale</label>
-                <label><input type="checkbox" name="kale_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="kale_no" value="N"> N</label>
-                <input type="text" name="kale_x" class="input-field" placeholder="x">
-            </div>
-            <div class="item">
-                <label>Other</label>
-                <label><input type="checkbox" name="other_greens_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="other_greens_no" value="N"> N</label>
-                <input type="text" name="other_greens_x" class="input-field" placeholder="x">
-            </div>
-
-            <!-- VEGETABLES -->
-            <div class="category-header">VEGETABLES</div>
-            <div class="item">
-                <label>Carrots / Parsnips</label>
-                <label><input type="checkbox" name="carrots_parsnips_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="carrots_parsnips_no" value="N"> N</label>
-                <input type="text" name="carrots_parsnips_x" class="input-field" placeholder="x">
-            </div>
-            <div class="item">
-                <label>Celery / Fennel</label>
-                <label><input type="checkbox" name="celery_fennel_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="celery_fennel_no" value="N"> N</label>
-                <input type="text" name="celery_fennel_x" class="input-field" placeholder="x">
-            </div>
-            <div class="item">
-                <label>Radish</label>
-                <label><input type="checkbox" name="radish_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="radish_no" value="N"> N</label>
-                <input type="text" name="radish_x" class="input-field" placeholder="x">
-            </div>
-            <div class="item">
-                <label>Tomatoes</label>
-                <label><input type="checkbox" name="tomatoes_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="tomatoes_no" value="N"> N</label>
-                <input type="text" name="tomatoes_x" class="input-field" placeholder="x">
-            </div>
-            <div class="item">
-                <label>Sweet Potatoes / Potatoes</label>
-                <label><input type="checkbox" name="sweet_potatoes_potatoes_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="sweet_potatoes_potatoes_no" value="N"> N</label>
-                <input type="text" name="sweet_potatoes_potatoes_x" class="input-field" placeholder="x">
-            </div>
-            <div class="item">
-                <label>Squash</label>
-                <label><input type="checkbox" name="squash_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="squash_no" value="N"> N</label>
-                <input type="text" name="squash_x" class="input-field" placeholder="x">
-            </div>
-            <div class="item">
-                <label>Zucchini</label>
-                <label><input type="checkbox" name="zucchini_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="zucchini_no" value="N"> N</label>
-                <input type="text" name="zucchini_x" class="input-field" placeholder="x">
-            </div>
-            <div class="item">
-                <label>Asparagus</label>
-                <label><input type="checkbox" name="asparagus_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="asparagus_no" value="N"> N</label>
-                <input type="text" name="asparagus_x" class="input-field" placeholder="x">
-            </div>
-            <div class="item">
-                <label>Corn</label>
-                <label><input type="checkbox" name="corn_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="corn_no" value="N"> N</label>
-                <input type="text" name="corn_x" class="input-field" placeholder="x">
-            </div>
-            <div class="item">
-                <label>Green Peas</label>
-                <label><input type="checkbox" name="green_peas_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="green_peas_no" value="N"> N</label>
-                <input type="text" name="green_peas_x" class="input-field" placeholder="x">
-            </div>
-            <div class="item">
-                <label>Green Beans</label>
-                <label><input type="checkbox" name="green_beans_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="green_beans_no" value="N"> N</label>
-                <input type="text" name="green_beans_x" class="input-field" placeholder="x">
-            </div>
-            <div class="item">
-                <label>Avocado</label>
-                <label><input type="checkbox" name="avocado_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="avocado_no" value="N"> N</label>
-                <input type="text" name="avocado_x" class="input-field" placeholder="x">
-            </div>
-            <div class="item">
-                <label>Bell Pepper</label>
-                <label><input type="checkbox" name="bell_pepper_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="bell_pepper_no" value="N"> N</label>
-                <input type="text" name="bell_pepper_x" class="input-field" placeholder="x">
-            </div>
-
-            <!-- SEASONING -->
-            <div class="category-header">SEASONING</div>
-            <div class="item">
-                <label>Onion</label>
-                <label><input type="checkbox" name="onion_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="onion_no" value="N"> N</label>
-                <input type="text" name="onion_x" class="input-field" placeholder="x">
-            </div>
-            <div class="item">
-                <label>Garlic</label>
-                <label><input type="checkbox" name="garlic_yes" value="Y"> Y</label>
-                <label><input type="checkbox" name="garlic_no" value="N"> N</label>
-                <input type="text" name="garlic_x" class="input-field" placeholder="x">
-            </div>
-
-            <!-- Add remaining items as needed -->
-
-   <div class="item row">
-                <div class="col">
-                    <label for="user_email">Your Email</label>
-                </div>
-                <div class="col">
-                    <input type="email" id="user_email" name="user_email" class="input-field" placeholder="Enter your email" required>
-                </div>
-            </div>
-
-            <button type="submit">Submit</button>
-        </form>
-    </div>
-
-</body>
-</html>
-
-<style>
-    /* Importing Noto Sans font from Google for the body */
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weekly Grocery List</title>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400&display=swap');
 
-
     body {
-        font-family: 'Noto Sans', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #e8f4ea;  /* Set background color for the body */
-        font-size: 16px; /* Setting default font size */
+      font-family: 'Noto Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #e8f4ea;
+      font-size: 16px;
     }
 
     .form-container {
-        max-width: 600px;
-        margin-left: 100px;  /* 100px margin on the left */
-        background-color: #e8f4ea;  /* Set background color for the form container */
-        padding: 20px;
-        border-radius: 8px;  /* Optional: Adds rounded corners to the form */
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #e8f4ea;
+      padding: 20px;
+      border-radius: 8px;
     }
 
     .form-header {
-        font-size: 16px;  /* Simple 16px font size */
-        text-align: left;
-        margin-bottom: 20px;
+      font-size: 16px;
+      text-align: left;
+      margin-bottom: 20px;
     }
 
     .category-header {
-        font-size: 16px;  /* Simple 16px font size for headings */
-        margin-top: 20px;
-        margin-bottom: 10px;
-        text-transform: uppercase;
-        text-align: left;
+      font-size: 16px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      text-align: left;
     }
 
     .item {
-        margin-bottom: 10px;
-        display: flex;
-        align-items: center;  /* Align checkboxes and inputs inline with the label */
-        justify-content: flex-start;
+      margin-bottom: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
     label {
-        font-family: 'Noto Sans', sans-serif;  /* Changing font for labels */
-        font-size: 16px;  /* 16px font size for labels */
-        font-weight: normal;  /* Setting font weight to normal */
-        display: inline-block;
-        width: 250px; /* Adjusting label width for alignment */
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 16px;
+      font-weight: normal;
+      margin-right: 10px;
     }
 
     .input-field {
-        width: 50px;
-        margin-left: 10px;
+      width: 50px;
+      margin-left: 10px;
     }
 
-    input[type="text"] {
-        width: 50px;
-        padding: 5px;
+    input[type="text"],
+    input[type="email"] {
+      padding: 5px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
     }
 
     input[type="checkbox"] {
-        margin-right: 10px;
+      margin-right: 5px;
     }
 
     button {
-        margin-top: 20px;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
     }
 
-         input[type="email"] {
-    width: 100%;  /* Make the email input field take full width */
-    padding: 10px;  /* Add padding for better usability */
-    font-size: 16px;  /* Set font size to 16px */
-    border: 1px solid #ccc;  /* Border color for better visibility */
-    border-radius: 5px;  /* Optional: Rounded corners */
-    box-sizing: border-box;  /* Ensure padding doesn't affect width */}
-    
-    /* Mobile Responsive Design */
     @media screen and (max-width: 600px) {
-        .form-container {
-            margin-left: 10px;  /* Reduce margin for smaller screens */
-            width: 100%;  /* Full width on small screens */
-        }
+      .form-container {
+        margin: 10px;
+        width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
 
-        label {
-            width: auto;  /* Make label width auto so it adapts to the content */
-            display: inline-block;
-            margin-right: 10px;  /* Add margin for spacing between label and inputs */
-        }
+<div class="form-container">
+  <div class="form-header">Weekly Grocery List</div>
 
-        .item {
-            display: flex;
-            flex-wrap: nowrap;  /* Prevent wrapping and keep everything on the same line */
-            align-items: center;
-            justify-content: flex-start;
-        }
+  <form id="foodSelectionForm">
 
-        .input-field {
-            width: 80px;  /* Increase input width for mobile */
-            margin-left: 10px;
-        }
+    <!-- CATEGORY SECTIONS -->
+    <div class="category-header">PROTEINS</div>
+    <div class="item"><label>Fish</label><input type="checkbox" name="fish_yes" value="Y"> Y<input type="checkbox" name="fish_no" value="N"> N<input type="text" name="fish_x" class="input-field" placeholder="x"></div>
+    <div class="item"><label>Chicken</label><input type="checkbox" name="chicken_yes" value="Y"> Y<input type="checkbox" name="chicken_no" value="N"> N<input type="text" name="chicken_x" class="input-field" placeholder="x"></div>
+    <div class="item"><label>Beef</label><input type="checkbox" name="beef_yes" value="Y"> Y<input type="checkbox" name="beef_no" value="N"> N<input type="text" name="beef_x" class="input-field" placeholder="x"></div>
+    <div class="item"><label>Pork</label><input type="checkbox" name="pork_yes" value="Y"> Y<input type="checkbox" name="pork_no" value="N"> N<input type="text" name="pork_x" class="input-field" placeholder="x"></div>
+    <div class="item"><label>Lamb / Duck</label><input type="checkbox" name="lamb_duck_yes" value="Y"> Y<input type="checkbox" name="lamb_duck_no" value="N"> N<input type="text" name="lamb_duck_x" class="input-field" placeholder="x"></div>
+    <div class="item"><label>Eggs</label><input type="checkbox" name="eggs_yes" value="Y"> Y<input type="checkbox" name="eggs_no" value="N"> N<input type="text" name="eggs_x" class="input-field" placeholder="x"></div>
 
-        input[type="checkbox"] {
-            margin-right: 5px;  /* Reduce margin for checkboxes */
-        }
+    <div class="category-header">GREEN LEAVES</div>
+    <div class="item"><label>Cabbage</label><input type="checkbox" name="cabbage_yes" value="Y"> Y<input type="checkbox" name="cabbage_no" value="N"> N<input type="text" name="cabbage_x" class="input-field" placeholder="x"></div>
+    <div class="item"><label>Bok Choy</label><input type="checkbox" name="bok_choy_yes" value="Y"> Y<input type="checkbox" name="bok_choy_no" value="N"> N<input type="text" name="bok_choy_x" class="input-field" placeholder="x"></div>
+    <div class="item"><label>Rainbow Chard</label><input type="checkbox" name="rainbow_chard_yes" value="Y"> Y<input type="checkbox" name="rainbow_chard_no" value="N"> N<input type="text" name="rainbow_chard_x" class="input-field" placeholder="x"></div>
+    <div class="item"><label>Kale</label><input type="checkbox" name="kale_yes" value="Y"> Y<input type="checkbox" name="kale_no" value="N"> N<input type="text" name="kale_x" class="input-field" placeholder="x"></div>
+    <div class="item"><label>Other</label><input type="checkbox" name="other_greens_yes" value="Y"> Y<input type="checkbox" name="other_greens_no" value="N"> N<input type="text" name="other_greens_x" class="input-field" placeholder="x"></div>
 
-        button {
-            width: 100%;  /* Make button full width */
-        }
-}
+    <div class="category-header">VEGETABLES</div>
+    <div class="item"><label>Carrots / Parsnips</label><input type="checkbox" name="carrots_parsnips_yes" value="Y"> Y<input type="checkbox" name="carrots_parsnips_no" value="N"> N<input type="text" name="carrots_parsnips_x" class="input-field" placeholder="x"></div>
+    <div class="item"><label>Celery / Fennel</label><input type="checkbox" name="celery_fennel_yes" value="Y"> Y<input type="checkbox" name="celery_fennel_no" value="N"> N<input type="text" name="celery_fennel_x" class="input-field" placeholder="x"></div>
+    <div class="item"><label>Radish</label><input type="checkbox" name="radish_yes" value="Y"> Y<input type="checkbox" name="radish_no" value="N"> N<input type="text" name="radish_x" class="input-field" placeholder="x"></div>
+    <div class="item"><label>Tomatoes</label><input type="checkbox" name="tomatoes_yes" value="Y"> Y<input type="checkbox" name="tomatoes_no" value="N"> N<input type="text" name="tomatoes_x" class="input-field" placeholder="x"></div>
+    <div class="item"><label>Sweet Potatoes / Potatoes</label><input type="checkbox" name="sweet_potatoes_potatoes_yes" value="Y"> Y<input type="checkbox" name="sweet_potatoes_potatoes_no" value="N"> N<input type="text" name="sweet_potatoes_potatoes_x" class="input-field" placeholder="x"></div>
+    <div class="item"><label>Squash</label><input type="checkbox" name="squash_yes" value="Y"> Y<input type="checkbox" name="squash_no" value="N"> N<input type="text" name="squash_x" class="input-field" placeholder="x"></div>
+    <div class="item"><label>Zucchini</label><input type="checkbox" name="zucchini_yes" value="Y"> Y<input type="checkbox" name="zucchini_no" value="N"> N<input type="text" name="zucchini_x" class="input-field" placeholder="x"></div>
+    <div class="item"><label>Asparagus</label><input type="checkbox" name="asparagus_yes" value="Y"> Y<input type="checkbox" name="asparagus_no" value="N"> N<input type="text" name="asparagus_x" class="input-field" placeholder="x"></div>
+    <div class="item"><label>Corn</label><input type="checkbox" name="corn_yes" value="Y"> Y<input type="checkbox" name="corn_no" value="N"> N<input type="text" name="corn_x" class="input-field" placeholder="x"></div>
+    <div class="item"><label>Green Peas</label><input type="checkbox" name="green_peas_yes" value="Y"> Y<input type="checkbox" name="green_peas_no" value="N"> N<input type="text" name="green_peas_x" class="input-field" placeholder="x"></div>
+    <div class="item"><label>Green Beans</label><input type="checkbox" name="green_beans_yes" value="Y"> Y<input type="checkbox" name="green_beans_no" value="N"> N<input type="text" name="green_beans_x" class="input-field" placeholder="x"></div>
+    <div class="item"><label>Avocado</label><input type="checkbox" name="avocado_yes" value="Y"> Y<input type="checkbox" name="avocado_no" value="N"> N<input type="text" name="avocado_x" class="input-field" placeholder="x"></div>
+    <div class="item"><label>Bell Pepper</label><input type="checkbox" name="bell_pepper_yes" value="Y"> Y<input type="checkbox" name="bell_pepper_no" value="N"> N<input type="text" name="bell_pepper_x" class="input-field" placeholder="x"></div>
 
-</style>
+    <div class="category-header">SEASONING</div>
+    <div class="item"><label>Onion</label><input type="checkbox" name="onion_yes" value="Y"> Y<input type="checkbox" name="onion_no" value="N"> N<input type="text" name="onion_x" class="input-field" placeholder="x"></div>
+    <div class="item"><label>Garlic</label><input type="checkbox" name="garlic_yes" value="Y"> Y<input type="checkbox" name="garlic_no" value="N"> N<input type="text" name="garlic_x" class="input-field" placeholder="x"></div>
 
+    <div class="item">
+      <label for="user_email">Your Email</label>
+      <input type="email" id="user_email" name="user_email" placeholder="Enter your email" required>
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
 
 <script>
+  emailjs.init("THF4TaFjD5kYnzb9B");
 
-emailjs.init("THF4TaFjD5kYnzb9B"); // Replace with your EmailJS User ID
+  document.getElementById('foodSelectionForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
+    const formValues = {};
 
-window.onload = function() {
-    document.getElementById('foodSelectionForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
+    for (const [key, value] of formData.entries()) {
+      formValues[key] = value;
+    }
 
-    // Get form data
-    var formData = new FormData(document.getElementById("foodSelectionForm"));
-
-    // Prepare the form values to send
-    var formValues = {
-        user_email: formData.get("user_email"),  // User's email
-        
-        // PROTEINS
-        fish_yes: formData.get("fish_yes") ? "Y" : "N",   // Fish Yes selection
-        fish_no: formData.get("fish_no") ? "Y" : "N",     // Fish No selection
-        fish_x: formData.get("fish_x") || "",             // Additional notes for Fish
-
-        chicken_yes: formData.get("chicken_yes") ? "Y" : "N",  // Chicken Yes selection
-        chicken_no: formData.get("chicken_no") ? "Y" : "N",    // Chicken No selection
-        chicken_x: formData.get("chicken_x") || "",             // Additional notes for Chicken
-
-        beef_yes: formData.get("beef_yes") ? "Y" : "N",        // Beef Yes selection
-        beef_no: formData.get("beef_no") ? "Y" : "N",          // Beef No selection
-        beef_x: formData.get("beef_x") || "",                  // Additional notes for Beef
-
-        pork_yes: formData.get("pork_yes") ? "Y" : "N",        // Pork Yes selection
-        pork_no: formData.get("pork_no") ? "Y" : "N",          // Pork No selection
-        pork_x: formData.get("pork_x") || "",                  // Additional notes for Pork
-
-        lamb_duck_yes: formData.get("lamb_duck_yes") ? "Y" : "N",  // Lamb / Duck Yes selection
-        lamb_duck_no: formData.get("lamb_duck_no") ? "Y" : "N",    // Lamb / Duck No selection
-        lamb_duck_x: formData.get("lamb_duck_x") || "",             // Additional notes for Lamb / Duck
-
-        eggs_yes: formData.get("eggs_yes") ? "Y" : "N",          // Eggs Yes selection
-        eggs_no: formData.get("eggs_no") ? "Y" : "N",            // Eggs No selection
-        eggs_x: formData.get("eggs_x") || "",                    // Additional notes for Eggs
-
-        // GREEN LEAVES
-        cabbage_yes: formData.get("cabbage_yes") ? "Y" : "N",     // Cabbage Yes selection
-        cabbage_no: formData.get("cabbage_no") ? "Y" : "N",       // Cabbage No selection
-        cabbage_x: formData.get("cabbage_x") || "",               // Additional notes for Cabbage
-
-        bok_choy_yes: formData.get("bok_choy_yes") ? "Y" : "N",   // Bok Choy Yes selection
-        bok_choy_no: formData.get("bok_choy_no") ? "Y" : "N",     // Bok Choy No selection
-        bok_choy_x: formData.get("bok_choy_x") || "",             // Additional notes for Bok Choy
-
-        rainbow_chard_yes: formData.get("rainbow_chard_yes") ? "Y" : "N", // Rainbow Chard Yes selection
-        rainbow_chard_no: formData.get("rainbow_chard_no") ? "Y" : "N",   // Rainbow Chard No selection
-        rainbow_chard_x: formData.get("rainbow_chard_x") || "",       // Additional notes for Rainbow Chard
-
-        kale_yes: formData.get("kale_yes") ? "Y" : "N",            // Kale Yes selection
-        kale_no: formData.get("kale_no") ? "Y" : "N",              // Kale No selection
-        kale_x: formData.get("kale_x") || "",                      // Additional notes for Kale
-
-        other_greens_yes: formData.get("other_greens_yes") ? "Y" : "N",  // Other Greens Yes selection
-        other_greens_no: formData.get("other_greens_no") ? "Y" : "N",    // Other Greens No selection
-        other_greens_x: formData.get("other_greens_x") || "",            // Additional notes for Other Greens
-
-        // VEGETABLES
-        carrots_parsnips_yes: formData.get("carrots_parsnips_yes") ? "Y" : "N", // Carrots / Parsnips Yes selection
-        carrots_parsnips_no: formData.get("carrots_parsnips_no") ? "Y" : "N",   // Carrots / Parsnips No selection
-        carrots_parsnips_x: formData.get("carrots_parsnips_x") || "",           // Additional notes for Carrots / Parsnips
-
-        celery_fennel_yes: formData.get("celery_fennel_yes") ? "Y" : "N",       // Celery / Fennel Yes selection
-        celery_fennel_no: formData.get("celery_fennel_no") ? "Y" : "N",         // Celery / Fennel No selection
-        celery_fennel_x: formData.get("celery_fennel_x") || "",                 // Additional notes for Celery / Fennel
-
-        radish_yes: formData.get("radish_yes") ? "Y" : "N",                     // Radish Yes selection
-        radish_no: formData.get("radish_no") ? "Y" : "N",                       // Radish No selection
-        radish_x: formData.get("radish_x") || "",                               // Additional notes for Radish
-
-        tomatoes_yes: formData.get("tomatoes_yes") ? "Y" : "N",                 // Tomatoes Yes selection
-        tomatoes_no: formData.get("tomatoes_no") ? "Y" : "N",                   // Tomatoes No selection
-        tomatoes_x: formData.get("tomatoes_x") || "",                           // Additional notes for Tomatoes
-
-        sweet_potatoes_potatoes_yes: formData.get("sweet_potatoes_potatoes_yes") ? "Y" : "N", // Sweet Potatoes Yes selection
-        sweet_potatoes_potatoes_no: formData.get("sweet_potatoes_potatoes_no") ? "Y" : "N",   // Sweet Potatoes No selection
-        sweet_potatoes_potatoes_x: formData.get("sweet_potatoes_potatoes_x") || "",     // Additional notes for Sweet Potatoes / Potatoes
-
-        squash_yes: formData.get("squash_yes") ? "Y" : "N",                     // Squash Yes selection
-        squash_no: formData.get("squash_no") ? "Y" : "N",                       // Squash No selection
-        squash_x: formData.get("squash_x") || "",                               // Additional notes for Squash
-
-        zucchini_yes: formData.get("zucchini_yes") ? "Y" : "N",                 // Zucchini Yes selection
-        zucchini_no: formData.get("zucchini_no") ? "Y" : "N",                   // Zucchini No selection
-        zucchini_x: formData.get("zucchini_x") || "",                           // Additional notes for Zucchini
-
-        asparagus_yes: formData.get("asparagus_yes") ? "Y" : "N",               // Asparagus Yes selection
-        asparagus_no: formData.get("asparagus_no") ? "Y" : "N",                 // Asparagus No selection
-        asparagus_x: formData.get("asparagus_x") || "",                         // Additional notes for Asparagus
-
-        corn_yes: formData.get("corn_yes") ? "Y" : "N",                         // Corn Yes selection
-        corn_no: formData.get("corn_no") ? "Y" : "N",                           // Corn No selection
-        corn_x: formData.get("corn_x") || "",                                   // Additional notes for Corn
-
-        green_peas_yes: formData.get("green_peas_yes") ? "Y" : "N",             // Green Peas Yes selection
-        green_peas_no: formData.get("green_peas_no") ? "Y" : "N",               // Green Peas No selection
-        green_peas_x: formData.get("green_peas_x") || "",                       // Additional notes for Green Peas
-
-        green_beans_yes: formData.get("green_beans_yes") ? "Y" : "N",           // Green Beans Yes selection
-        green_beans_no: formData.get("green_beans_no") ? "Y" : "N",             // Green Beans No selection
-        green_beans_x: formData.get("green_beans_x") || "",                     // Additional notes for Green Beans
-
-        avocado_yes: formData.get("avocado_yes") ? "Y" : "N",                   // Avocado Yes selection
-        avocado_no: formData.get("avocado_no") ? "Y" : "N",                     // Avocado No selection
-        avocado_x: formData.get("avocado_x") || "",                             // Additional notes for Avocado
-
-        bell_pepper_yes: formData.get("bell_pepper_yes") ? "Y" : "N",           // Bell Pepper Yes selection
-        bell_pepper_no: formData.get("bell_pepper_no") ? "Y" : "N",             // Bell Pepper No selection
-        bell_pepper_x: formData.get("bell_pepper_x") || "",                     // Additional notes for Bell Pepper
-
-        // SEASONING
-        onion_yes: formData.get("onion_yes") ? "Y" : "N",                       // Onion Yes selection
-        onion_no: formData.get("onion_no") ? "Y" : "N",                         // Onion No selection
-        onion_x: formData.get("onion_x") || "",                                 // Additional notes for Onion
-
-        garlic_yes: formData.get("garlic_yes") ? "Y" : "N",                     // Garlic Yes selection
-        garlic_no: formData.get("garlic_no") ? "Y" : "N",                       // Garlic No selection
-        garlic_x: formData.get("garlic_x") || ""                                // Additional notes for Garlic
-    };
-
-    // Send the email using EmailJS
-    emailjs.send("service_0ix7vvg", "template_5y0essw", formValues)
-    .then(function(response) {
-        alert("Form submitted successfully!");
-    }, function(error) {
-        alert("Failed to send email. Please try again.");
+    const checkboxes = form.querySelectorAll('input[type=checkbox]');
+    checkboxes.forEach(cb => {
+      if (!formData.has(cb.name)) {
+        formValues[cb.name] = "N";
+      }
     });
-}
 
+    emailjs.send("service_0ix7vvg", "template_5y0essw", formValues)
+      .then(() => {
+        alert("Form submitted successfully!");
+        form.reset();
+      })
+      .catch(() => {
+        alert("Failed to send email. Please try again.");
+      });
+  });
 </script>
+
+</body>
+</html>
