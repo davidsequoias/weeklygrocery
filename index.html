@@ -12,11 +12,11 @@
         <div class="form-header">
             Weekly Grocery List
         </div>
- <form id="foodSelectionForm" onsubmit="sendEmail(event)"></form>
+<form id="foodSelectionForm" action="javascript:void(0);" method="post" onsubmit="sendEmail(event)">
+
         <!-- PROTEINS -->
         <div class="category-header">PROTEINS</div>
-        <form action="#" method="post">
-            <div class="item">
+                    <div class="item">
                 <label>Fish</label>
                 <label><input type="checkbox" name="fish_yes" value="Y"> Y</label>
                 <label><input type="checkbox" name="fish_no" value="N"> N</label>
