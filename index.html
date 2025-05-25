@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weekly Grocery List</title>
-     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
 </head>
 <body>
 
@@ -320,8 +321,9 @@
 
 emailjs.init("THF4TaFjD5kYnzb9B"); // Replace with your EmailJS User ID
 
-function sendEmail(event) {
-    event.preventDefault(); // Prevent default form submission
+window.onload = function() {
+    document.getElementById('foodSelectionForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
 
     // Get form data
     var formData = new FormData(document.getElementById("foodSelectionForm"));
