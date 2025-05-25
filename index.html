@@ -150,7 +150,7 @@
 
 <script>
   emailjs.init("THF4TaFjD5kYnzb9B");
-
+formValues['user_email'] = formData.get("user_email");
   document.getElementById('foodSelectionForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const form = event.target;
