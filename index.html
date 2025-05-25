@@ -318,7 +318,7 @@
 
 <script>
 
- emailjs.init("dltn2wMwvBtCDQXBx"); // Replace with your EmailJS User ID
+ emailjs.init("THF4TaFjD5kYnzb9B"); // Replace with your EmailJS User ID
 
     function sendEmail(event) {
     event.preventDefault(); // Prevent default form submission
@@ -327,7 +327,7 @@
     var formData = new FormData(document.getElementById("foodSelectionForm"));
 
     // Send the email using EmailJS
-    emailjs.send("service_0ix7vvg", "template_5y0essw", {
+    emailjs.send("service_0ix7vvg", "template_5y0essw"); {
         user_email: formData.get("user_email"),  // User's email
         fish_yes: formData.get("fish_yes"),      // Fish Yes selection
         fish_no: formData.get("fish_no"),        // Fish No selection
