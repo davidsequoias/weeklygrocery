@@ -318,111 +318,129 @@
 
 <script>
 
- emailjs.init("THF4TaFjD5kYnzb9B"); // Replace with your EmailJS User ID
+emailjs.init("THF4TaFjD5kYnzb9B"); // Replace with your EmailJS User ID
 
-    function sendEmail(event) {
+function sendEmail(event) {
     event.preventDefault(); // Prevent default form submission
 
     // Get form data
     var formData = new FormData(document.getElementById("foodSelectionForm"));
 
-    // Send the email using EmailJS
-    emailjs.send("service_0ix7vvg", "template_5y0essw", {
+    // Prepare the form values to send
+    var formValues = {
         user_email: formData.get("user_email"),  // User's email
-        fish_yes: formData.get("fish_yes"),      // Fish Yes selection
-        fish_no: formData.get("fish_no"),        // Fish No selection
-        fish_x: formData.get("fish_x"),          // Additional notes for Fish
-        chicken_yes: formData.get("chicken_yes"),// Chicken Yes selection
-        chicken_no: formData.get("chicken_no"),  // Chicken No selection
-        chicken_x: formData.get("chicken_x"),    // Additional notes for Chicken
-        beef_yes: formData.get("beef_yes"),      // Beef Yes selection
-        beef_no: formData.get("beef_no"),        // Beef No selection
-        beef_x: formData.get("beef_x"),          // Additional notes for Beef
-        pork_yes: formData.get("pork_yes"),      // Pork Yes selection
-        pork_no: formData.get("pork_no"),        // Pork No selection
-        pork_x: formData.get("pork_x"),          // Additional notes for Pork
-        lamb_duck_yes: formData.get("lamb_duck_yes"), // Lamb / Duck Yes selection
-        lamb_duck_no: formData.get("lamb_duck_no"), // Lamb / Duck No selection
-        lamb_duck_x: formData.get("lamb_duck_x"), // Additional notes for Lamb / Duck
-        eggs_yes: formData.get("eggs_yes"),      // Eggs Yes selection
-        eggs_no: formData.get("eggs_no"),        // Eggs No selection
-        eggs_x: formData.get("eggs_x"),          // Additional notes for Eggs
+        
+        // PROTEINS
+        fish_yes: formData.get("fish_yes") ? "Y" : "N",   // Fish Yes selection
+        fish_no: formData.get("fish_no") ? "Y" : "N",     // Fish No selection
+        fish_x: formData.get("fish_x") || "",             // Additional notes for Fish
 
-        cabbage_yes: formData.get("cabbage_yes"), // Cabbage Yes selection
-        cabbage_no: formData.get("cabbage_no"),   // Cabbage No selection
-        cabbage_x: formData.get("cabbage_x"),     // Additional notes for Cabbage
-        bok_choy_yes: formData.get("bok_choy_yes"), // Bok Choy Yes selection
-        bok_choy_no: formData.get("bok_choy_no"),  // Bok Choy No selection
-        bok_choy_x: formData.get("bok_choy_x"),    // Additional notes for Bok Choy
-        rainbow_chard_yes: formData.get("rainbow_chard_yes"), // Rainbow Chard Yes selection
-        rainbow_chard_no: formData.get("rainbow_chard_no"),   // Rainbow Chard No selection
-        rainbow_chard_x: formData.get("rainbow_chard_x"),     // Additional notes for Rainbow Chard
-        kale_yes: formData.get("kale_yes"),        // Kale Yes selection
-        kale_no: formData.get("kale_no"),          // Kale No selection
-        kale_x: formData.get("kale_x"),            // Additional notes for Kale
-        other_greens_yes: formData.get("other_greens_yes"), // Other Greens Yes selection
-        other_greens_no: formData.get("other_greens_no"),   // Other Greens No selection
-        other_greens_x: formData.get("other_greens_x"),     // Additional notes for Other Greens
+        chicken_yes: formData.get("chicken_yes") ? "Y" : "N",  // Chicken Yes selection
+        chicken_no: formData.get("chicken_no") ? "Y" : "N",    // Chicken No selection
+        chicken_x: formData.get("chicken_x") || "",             // Additional notes for Chicken
 
-        carrots_parsnips_yes: formData.get("carrots_parsnips_yes"), // Carrots / Parsnips Yes selection
-        carrots_parsnips_no: formData.get("carrots_parsnips_no"),   // Carrots / Parsnips No selection
-        carrots_parsnips_x: formData.get("carrots_parsnips_x"),     // Additional notes for Carrots / Parsnips
-        celery_fennel_yes: formData.get("celery_fennel_yes"),       // Celery / Fennel Yes selection
-        celery_fennel_no: formData.get("celery_fennel_no"),         // Celery / Fennel No selection
-        celery_fennel_x: formData.get("celery_fennel_x"),           // Additional notes for Celery / Fennel
-        radish_yes: formData.get("radish_yes"),                       // Radish Yes selection
-        radish_no: formData.get("radish_no"),                         // Radish No selection
-        radish_x: formData.get("radish_x"),                           // Additional notes for Radish
-        tomatoes_yes: formData.get("tomatoes_yes"),                   // Tomatoes Yes selection
-        tomatoes_no: formData.get("tomatoes_no"),                     // Tomatoes No selection
-        tomatoes_x: formData.get("tomatoes_x"),                       // Additional notes for Tomatoes
-        sweet_potatoes_potatoes_yes: formData.get("sweet_potatoes_potatoes_yes"), // Sweet Potatoes / Potatoes Yes selection
-        sweet_potatoes_potatoes_no: formData.get("sweet_potatoes_potatoes_no"),   // Sweet Potatoes / Potatoes No selection
-        sweet_potatoes_potatoes_x: formData.get("sweet_potatoes_potatoes_x"),     // Additional notes for Sweet Potatoes / Potatoes
-        squash_yes: formData.get("squash_yes"),                       // Squash Yes selection
-        squash_no: formData.get("squash_no"),                         // Squash No selection
-        squash_x: formData.get("squash_x"),                           // Additional notes for Squash
-        zucchini_yes: formData.get("zucchini_yes"),                   // Zucchini Yes selection
-        zucchini_no: formData.get("zucchini_no"),                     // Zucchini No selection
-        zucchini_x: formData.get("zucchini_x"),                       // Additional notes for Zucchini
-        asparagus_yes: formData.get("asparagus_yes"),                 // Asparagus Yes selection
-        asparagus_no: formData.get("asparagus_no"),                   // Asparagus No selection
-        asparagus_x: formData.get("asparagus_x"),                     // Additional notes for Asparagus
-        corn_yes: formData.get("corn_yes"),                           // Corn Yes selection
-        corn_no: formData.get("corn_no"),                             // Corn No selection
-        corn_x: formData.get("corn_x"),                               // Additional notes for Corn
-        green_peas_yes: formData.get("green_peas_yes"),               // Green Peas Yes selection
-        green_peas_no: formData.get("green_peas_no"),                 // Green Peas No selection
-        green_peas_x: formData.get("green_peas_x"),                   // Additional notes for Green Peas
-        green_beans_yes: formData.get("green_beans_yes"),             // Green Beans Yes selection
-        green_beans_no: formData.get("green_beans_no"),               // Green Beans No selection
-        green_beans_x: formData.get("green_beans_x"),                 // Additional notes for Green Beans
-        avocado_yes: formData.get("avocado_yes"),                     // Avocado Yes selection
-        avocado_no: formData.get("avocado_no"),                       // Avocado No selection
-        avocado_x: formData.get("avocado_x"),                         // Additional notes for Avocado
-        bell_pepper_yes: formData.get("bell_pepper_yes"),             // Bell Pepper Yes selection
-        bell_pepper_no: formData.get("bell_pepper_no"),               // Bell Pepper No selection
-        bell_pepper_x: formData.get("bell_pepper_x"),                 // Additional notes for Bell Pepper
+        beef_yes: formData.get("beef_yes") ? "Y" : "N",        // Beef Yes selection
+        beef_no: formData.get("beef_no") ? "Y" : "N",          // Beef No selection
+        beef_x: formData.get("beef_x") || "",                  // Additional notes for Beef
 
-        onion_yes: formData.get("onion_yes"),                         // Onion Yes selection
-        onion_no: formData.get("onion_no"),                           // Onion No selection
-        onion_x: formData.get("onion_x"),                             // Additional notes for Onion
-        garlic_yes: formData.get("garlic_yes"),                       // Garlic Yes selection
-        garlic_no: formData.get("garlic_no"),                         // Garlic No selection
-        garlic_x: formData.get("garlic_x"),                           // Additional notes for Garlic
-        ginger_yes: formData.get("ginger_yes"),                       // Ginger Yes selection
-        ginger_no: formData.get("ginger_no"),                         // Ginger No selection
-        ginger_x: formData.get("ginger_x"),                           // Additional notes for Ginger
-        parsley_yes: formData.get("parsley_yes"),                     // Parsley Yes selection
-        parsley_no: formData.get("parsley_no"),                       // Parsley No selection
-        parsley_x: formData.get("parsley_x"),                         // Additional notes for Parsley
-        dill_yes: formData.get("dill_yes"),                           // Dill Yes selection
-        dill_no: formData.get("dill_no"),                             // Dill No selection
-        dill_x: formData.get("dill_x"),                               // Additional notes for Dill
-        cilantro_yes: formData.get("cilantro_yes"),                   // Cilantro Yes selection
-        cilantro_no: formData.get("cilantro_no"),                     // Cilantro No selection
-        cilantro_x: formData.get("cilantro_x")                        // Additional notes for Cilantro
-    })
+        pork_yes: formData.get("pork_yes") ? "Y" : "N",        // Pork Yes selection
+        pork_no: formData.get("pork_no") ? "Y" : "N",          // Pork No selection
+        pork_x: formData.get("pork_x") || "",                  // Additional notes for Pork
+
+        lamb_duck_yes: formData.get("lamb_duck_yes") ? "Y" : "N",  // Lamb / Duck Yes selection
+        lamb_duck_no: formData.get("lamb_duck_no") ? "Y" : "N",    // Lamb / Duck No selection
+        lamb_duck_x: formData.get("lamb_duck_x") || "",             // Additional notes for Lamb / Duck
+
+        eggs_yes: formData.get("eggs_yes") ? "Y" : "N",          // Eggs Yes selection
+        eggs_no: formData.get("eggs_no") ? "Y" : "N",            // Eggs No selection
+        eggs_x: formData.get("eggs_x") || "",                    // Additional notes for Eggs
+
+        // GREEN LEAVES
+        cabbage_yes: formData.get("cabbage_yes") ? "Y" : "N",     // Cabbage Yes selection
+        cabbage_no: formData.get("cabbage_no") ? "Y" : "N",       // Cabbage No selection
+        cabbage_x: formData.get("cabbage_x") || "",               // Additional notes for Cabbage
+
+        bok_choy_yes: formData.get("bok_choy_yes") ? "Y" : "N",   // Bok Choy Yes selection
+        bok_choy_no: formData.get("bok_choy_no") ? "Y" : "N",     // Bok Choy No selection
+        bok_choy_x: formData.get("bok_choy_x") || "",             // Additional notes for Bok Choy
+
+        rainbow_chard_yes: formData.get("rainbow_chard_yes") ? "Y" : "N", // Rainbow Chard Yes selection
+        rainbow_chard_no: formData.get("rainbow_chard_no") ? "Y" : "N",   // Rainbow Chard No selection
+        rainbow_chard_x: formData.get("rainbow_chard_x") || "",       // Additional notes for Rainbow Chard
+
+        kale_yes: formData.get("kale_yes") ? "Y" : "N",            // Kale Yes selection
+        kale_no: formData.get("kale_no") ? "Y" : "N",              // Kale No selection
+        kale_x: formData.get("kale_x") || "",                      // Additional notes for Kale
+
+        other_greens_yes: formData.get("other_greens_yes") ? "Y" : "N",  // Other Greens Yes selection
+        other_greens_no: formData.get("other_greens_no") ? "Y" : "N",    // Other Greens No selection
+        other_greens_x: formData.get("other_greens_x") || "",            // Additional notes for Other Greens
+
+        // VEGETABLES
+        carrots_parsnips_yes: formData.get("carrots_parsnips_yes") ? "Y" : "N", // Carrots / Parsnips Yes selection
+        carrots_parsnips_no: formData.get("carrots_parsnips_no") ? "Y" : "N",   // Carrots / Parsnips No selection
+        carrots_parsnips_x: formData.get("carrots_parsnips_x") || "",           // Additional notes for Carrots / Parsnips
+
+        celery_fennel_yes: formData.get("celery_fennel_yes") ? "Y" : "N",       // Celery / Fennel Yes selection
+        celery_fennel_no: formData.get("celery_fennel_no") ? "Y" : "N",         // Celery / Fennel No selection
+        celery_fennel_x: formData.get("celery_fennel_x") || "",                 // Additional notes for Celery / Fennel
+
+        radish_yes: formData.get("radish_yes") ? "Y" : "N",                     // Radish Yes selection
+        radish_no: formData.get("radish_no") ? "Y" : "N",                       // Radish No selection
+        radish_x: formData.get("radish_x") || "",                               // Additional notes for Radish
+
+        tomatoes_yes: formData.get("tomatoes_yes") ? "Y" : "N",                 // Tomatoes Yes selection
+        tomatoes_no: formData.get("tomatoes_no") ? "Y" : "N",                   // Tomatoes No selection
+        tomatoes_x: formData.get("tomatoes_x") || "",                           // Additional notes for Tomatoes
+
+        sweet_potatoes_potatoes_yes: formData.get("sweet_potatoes_potatoes_yes") ? "Y" : "N", // Sweet Potatoes Yes selection
+        sweet_potatoes_potatoes_no: formData.get("sweet_potatoes_potatoes_no") ? "Y" : "N",   // Sweet Potatoes No selection
+        sweet_potatoes_potatoes_x: formData.get("sweet_potatoes_potatoes_x") || "",     // Additional notes for Sweet Potatoes / Potatoes
+
+        squash_yes: formData.get("squash_yes") ? "Y" : "N",                     // Squash Yes selection
+        squash_no: formData.get("squash_no") ? "Y" : "N",                       // Squash No selection
+        squash_x: formData.get("squash_x") || "",                               // Additional notes for Squash
+
+        zucchini_yes: formData.get("zucchini_yes") ? "Y" : "N",                 // Zucchini Yes selection
+        zucchini_no: formData.get("zucchini_no") ? "Y" : "N",                   // Zucchini No selection
+        zucchini_x: formData.get("zucchini_x") || "",                           // Additional notes for Zucchini
+
+        asparagus_yes: formData.get("asparagus_yes") ? "Y" : "N",               // Asparagus Yes selection
+        asparagus_no: formData.get("asparagus_no") ? "Y" : "N",                 // Asparagus No selection
+        asparagus_x: formData.get("asparagus_x") || "",                         // Additional notes for Asparagus
+
+        corn_yes: formData.get("corn_yes") ? "Y" : "N",                         // Corn Yes selection
+        corn_no: formData.get("corn_no") ? "Y" : "N",                           // Corn No selection
+        corn_x: formData.get("corn_x") || "",                                   // Additional notes for Corn
+
+        green_peas_yes: formData.get("green_peas_yes") ? "Y" : "N",             // Green Peas Yes selection
+        green_peas_no: formData.get("green_peas_no") ? "Y" : "N",               // Green Peas No selection
+        green_peas_x: formData.get("green_peas_x") || "",                       // Additional notes for Green Peas
+
+        green_beans_yes: formData.get("green_beans_yes") ? "Y" : "N",           // Green Beans Yes selection
+        green_beans_no: formData.get("green_beans_no") ? "Y" : "N",             // Green Beans No selection
+        green_beans_x: formData.get("green_beans_x") || "",                     // Additional notes for Green Beans
+
+        avocado_yes: formData.get("avocado_yes") ? "Y" : "N",                   // Avocado Yes selection
+        avocado_no: formData.get("avocado_no") ? "Y" : "N",                     // Avocado No selection
+        avocado_x: formData.get("avocado_x") || "",                             // Additional notes for Avocado
+
+        bell_pepper_yes: formData.get("bell_pepper_yes") ? "Y" : "N",           // Bell Pepper Yes selection
+        bell_pepper_no: formData.get("bell_pepper_no") ? "Y" : "N",             // Bell Pepper No selection
+        bell_pepper_x: formData.get("bell_pepper_x") || "",                     // Additional notes for Bell Pepper
+
+        // SEASONING
+        onion_yes: formData.get("onion_yes") ? "Y" : "N",                       // Onion Yes selection
+        onion_no: formData.get("onion_no") ? "Y" : "N",                         // Onion No selection
+        onion_x: formData.get("onion_x") || "",                                 // Additional notes for Onion
+
+        garlic_yes: formData.get("garlic_yes") ? "Y" : "N",                     // Garlic Yes selection
+        garlic_no: formData.get("garlic_no") ? "Y" : "N",                       // Garlic No selection
+        garlic_x: formData.get("garlic_x") || ""                                // Additional notes for Garlic
+    };
+
+    // Send the email using EmailJS
+    emailjs.send("service_0ix7vvg", "template_5y0essw", formValues)
     .then(function(response) {
         alert("Form submitted successfully!");
     }, function(error) {
