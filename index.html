@@ -8,83 +8,64 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400&display=swap');
 
-    body {
-      font-family: 'Noto Sans', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f5f0e8;
-      font-size: 16px;
-    }
-
-    .form-container {
-      max-width: 600px;
-      margin: 20px auto;
-      background-color: transparent;
-      padding: 20px;
-      border-radius: 8px;
-    }
-
-    .form-header {
-      font-size: 16px;
-      text-align: left;
-      margin-bottom: 30px;
-    }
-
-    .category-header {
-      font-size: 16px;
-      margin-top: 20px;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      text-align: left;
-    }
-
-    .item {
-      margin-bottom: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    label {
-      font-family: 'Noto Sans', sans-serif;
-      font-size: 16px;
-      font-weight: normal;
-      margin-right: 10px;
-      color: #4a4a4a;
-    }
-
-    .input-field {
-      width: 50px;
-      margin-left: 10px;
-    }
-
-    input[type="text"],
-    input[type="email"] {
-      padding: 5px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-sizing: border-box;
-    }
-
-    input[type="email"] {
-      width: 80%;
-      padding: 10px;
-      margin-top: 5px;
-    }
-
-    /* Spacing and color for Y / N radios */
-input[type="radio"] {
-  margin-right: 10px;
-  margin-left: 15px;
+body {
+  font-family: 'Noto Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f0e8;
+  font-size: 16px;
 }
 
-input[type="radio"],
-input[type="radio"] + label {
+.form-container {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.form-header {
+  font-size: 16px;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.category-header {
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.item label {
+  width: 150px;
+  font-size: 16px;
+  font-weight: normal;
   color: #4a4a4a;
 }
 
-/* Quantity dropdown field styling (like email input) */
+/* Y / N radio button spacing and styling */
+.item input[type="radio"] {
+  margin-left: 0;
+  margin-right: 5px;
+  accent-color: #666;
+}
+
+.item span {
+  color: #666;
+  margin-right: 10px;
+}
+
+/* Quantity dropdown styled like email input */
 select.input-field {
   width: 55px;
   padding: 8px;
@@ -94,25 +75,57 @@ select.input-field {
   box-sizing: border-box;
 }
 
-    button {
+input[type="text"],
+input[type="email"] {
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input[type="email"] {
+  width: 80%;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+button {
   padding: 10px;
   font-size: 16px;
   width: 30%;
-      color: white;
+  color: white;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: green;
   box-sizing: border-box;
   cursor: pointer;
   transition: background-color 0.3s ease;
-    }
+}
 
-    @media screen and (max-width: 600px) {
-      .form-container {
-        margin: 10px;
-        width: auto;
-      }
-    }
+@media screen and (max-width: 600px) {
+  .form-container {
+    margin: 10px;
+    width: auto;
+  }
+
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .item label {
+    width: auto;
+    margin-bottom: 5px;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+
+    
   </style>
 </head>
 <body>
@@ -134,7 +147,6 @@ select.input-field {
     <button type="submit">Submit</button>
   </form>
 </div>
-
 
 <script>
   const groceryData = {
@@ -174,8 +186,8 @@ select.input-field {
       section.innerHTML += `
         <div class="item">
           <label>${label}</label>
-          <input type="radio" name="${name}" value="Y"> Y
-          <input type="radio" name="${name}" value="N"> N
+          <input type="radio" name="${name}" value="Y"><span>Y</span>
+          <input type="radio" name="${name}" value="N"><span>N</span>
           <select name="${name}_x" class="input-field">
             ${makeOptions()}
           </select>
@@ -186,6 +198,8 @@ select.input-field {
     container.appendChild(section);
   }
 </script>
+
+
 
 
   
