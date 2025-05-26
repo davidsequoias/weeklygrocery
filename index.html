@@ -6,7 +6,8 @@
   <title>Weekly Grocery List</title>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400&display=swap');
+
+     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400&display=swap');
 
 body {
   font-family: 'Noto Sans', sans-serif;
@@ -110,8 +111,10 @@ button {
   }
 
   .item {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-wrap: nowrap; /* force inline layout */
+    flex-direction: row; /* make sure it's horizontal */
+    align-items: center;
+    gap: 8px; /* smaller spacing between elements */
   }
 
   .item label {
@@ -119,11 +122,37 @@ button {
     margin-bottom: 5px;
   }
 
+  .item input[type="radio"] {
+    margin-left: 8px;  /* tighter spacing before radio */
+    margin-right: 3px; /* tighter spacing before label */
+  }
+  
+  .item span {
+    margin-right: 6px; /* tighter spacing after Y/N label */
+    color: #666;
+  }
+  
+  .input-field,
+  select.input-field {
+    width: 50px; /* maintain consistent size */
+  }
+  
   button {
     width: 100%;
   }
 }
 
+.textarea-field {
+  width: 80%;
+  height: 200px;
+  padding: 10px;
+  font-size: 16px;
+  font-family: 'Noto Sans', sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  resize: vertical;
+}
 
     
   </style>
@@ -139,6 +168,13 @@ button {
 <div id="dynamic-grocery-fields"></div>
 
 <!-- CATEGORY SECTIONS --END -->
+
+    <div class="category-header">Other items</div>
+<div class="item">
+  <textarea id="comments" name="comments" class="textarea-field" placeholder="Need other items? Note it here"></textarea>
+</div>
+
+    
     <div class="item">
       <label for="user_email">Your Email</label>
       <input type="email" id="user_email" name="user_email" placeholder="Enter your email" required>
