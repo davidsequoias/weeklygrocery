@@ -149,24 +149,31 @@
 </div>
 
 <script>
+  // Initialize EmailJS
   emailjs.init("THF4TaFjD5kYnzb9B");
-formValues['user_email'] = formData.get("user_email");
+
   document.getElementById('foodSelectionForm').addEventListener('submit', function(event) {
     event.preventDefault();
+
     const form = event.target;
     const formData = new FormData(form);
     const formValues = {};
 
+    // Add all filled-in values to formValues
     for (const [key, value] of formData.entries()) {
       formValues[key] = value;
     }
 
+    // Handle checkboxes not checked (set them to "N")
     const checkboxes = form.querySelectorAll('input[type=checkbox]');
     checkboxes.forEach(cb => {
       if (!formData.has(cb.name)) {
         formValues[cb.name] = "N";
       }
     });
+
+    // Ensure the user_email is used for the recipient
+    formValues['to_email'] = formData.get("user_email"); // Match your EmailJS template field (e.g., {{to_email}})
 
     emailjs.send("service_0ix7vvg", "template_5y0essw", formValues)
       .then(() => {
@@ -178,6 +185,7 @@ formValues['user_email'] = formData.get("user_email");
       });
   });
 </script>
+
 
 </body>
 </html>
