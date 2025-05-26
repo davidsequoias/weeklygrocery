@@ -104,129 +104,10 @@
 
   <form id="foodSelectionForm">
 
-    <!-- CATEGORY SECTIONS -->
-    <div class="category-header">PROTEINS</div>
-  <label>Fish</label>
-  <input type="radio" name="fish" value="Y"> Y
-  <input type="radio" name="fish" value="N"> N
-  <select name="fish_x" class="input-field">
-    <option value="">–</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-  </select>
-</div>
+<!-- CATEGORY SECTIONS -->
+<div id="dynamic-grocery-fields"></div>
 
-<div class="item">
-  <label>Chicken</label>
-  <input type="radio" name="chicken" value="Y"> Y
-  <input type="radio" name="chicken" value="N"> N
-  <select name="chicken_x" class="input-field">
-    <option value="">–</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-  </select>
-</div>
-
-<div class="item">
-  <label>Beef</label>
-  <input type="radio" name="beef" value="Y"> Y
-  <input type="radio" name="beef" value="N"> N
-  <select name="beef_x" class="input-field">
-    <option value="">–</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-  </select>
-</div>
-
-<div class="item">
-  <label>Pork</label>
-  <input type="radio" name="pork" value="Y"> Y
-  <input type="radio" name="pork" value="N"> N
-  <select name="pork_x" class="input-field">
-    <option value="">–</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-  </select>
-</div>
-
-<div class="item">
-  <label>Lamb / Duck</label>
-  <input type="radio" name="lamb_duck" value="Y"> Y
-  <input type="radio" name="lamb_duck" value="N"> N
-  <select name="lamb_duck_x" class="input-field">
-    <option value="">–</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-  </select>
-</div>
-    <div class="item"><label>Eggs</label><input type="checkbox" name="eggs_yes" value="Y"> Y<input type="checkbox" name="eggs_no" value="N"> N<input type="text" name="eggs_x" class="input-field" placeholder="x"></div>
-
-    <div class="category-header">GREEN LEAVES</div>
-    <div class="item"><label>Cabbage</label><input type="checkbox" name="cabbage_yes" value="Y"> Y<input type="checkbox" name="cabbage_no" value="N"> N<input type="text" name="cabbage_x" class="input-field" placeholder="x"></div>
-    <div class="item"><label>Bok Choy</label><input type="checkbox" name="bok_choy_yes" value="Y"> Y<input type="checkbox" name="bok_choy_no" value="N"> N<input type="text" name="bok_choy_x" class="input-field" placeholder="x"></div>
-    <div class="item"><label>Rainbow Chard</label><input type="checkbox" name="rainbow_chard_yes" value="Y"> Y<input type="checkbox" name="rainbow_chard_no" value="N"> N<input type="text" name="rainbow_chard_x" class="input-field" placeholder="x"></div>
-    <div class="item"><label>Kale</label><input type="checkbox" name="kale_yes" value="Y"> Y<input type="checkbox" name="kale_no" value="N"> N<input type="text" name="kale_x" class="input-field" placeholder="x"></div>
-    <div class="item"><label>Other</label><input type="checkbox" name="other_greens_yes" value="Y"> Y<input type="checkbox" name="other_greens_no" value="N"> N<input type="text" name="other_greens_x" class="input-field" placeholder="x"></div>
-
-    <div class="category-header">VEGETABLES</div>
-    <div class="item"><label>Carrots / Parsnips</label><input type="checkbox" name="carrots_parsnips_yes" value="Y"> Y<input type="checkbox" name="carrots_parsnips_no" value="N"> N<input type="text" name="carrots_parsnips_x" class="input-field" placeholder="x"></div>
-    <div class="item"><label>Celery / Fennel</label><input type="checkbox" name="celery_fennel_yes" value="Y"> Y<input type="checkbox" name="celery_fennel_no" value="N"> N<input type="text" name="celery_fennel_x" class="input-field" placeholder="x"></div>
-    <div class="item"><label>Radish</label><input type="checkbox" name="radish_yes" value="Y"> Y<input type="checkbox" name="radish_no" value="N"> N<input type="text" name="radish_x" class="input-field" placeholder="x"></div>
-    <div class="item"><label>Tomatoes</label><input type="checkbox" name="tomatoes_yes" value="Y"> Y<input type="checkbox" name="tomatoes_no" value="N"> N<input type="text" name="tomatoes_x" class="input-field" placeholder="x"></div>
-    <div class="item"><label>Sweet Potatoes / Potatoes</label><input type="checkbox" name="sweet_potatoes_potatoes_yes" value="Y"> Y<input type="checkbox" name="sweet_potatoes_potatoes_no" value="N"> N<input type="text" name="sweet_potatoes_potatoes_x" class="input-field" placeholder="x"></div>
-    <div class="item"><label>Squash</label><input type="checkbox" name="squash_yes" value="Y"> Y<input type="checkbox" name="squash_no" value="N"> N<input type="text" name="squash_x" class="input-field" placeholder="x"></div>
-    <div class="item"><label>Zucchini</label><input type="checkbox" name="zucchini_yes" value="Y"> Y<input type="checkbox" name="zucchini_no" value="N"> N<input type="text" name="zucchini_x" class="input-field" placeholder="x"></div>
-    <div class="item"><label>Asparagus</label><input type="checkbox" name="asparagus_yes" value="Y"> Y<input type="checkbox" name="asparagus_no" value="N"> N<input type="text" name="asparagus_x" class="input-field" placeholder="x"></div>
-    <div class="item"><label>Corn</label><input type="checkbox" name="corn_yes" value="Y"> Y<input type="checkbox" name="corn_no" value="N"> N<input type="text" name="corn_x" class="input-field" placeholder="x"></div>
-    <div class="item"><label>Green Peas</label><input type="checkbox" name="green_peas_yes" value="Y"> Y<input type="checkbox" name="green_peas_no" value="N"> N<input type="text" name="green_peas_x" class="input-field" placeholder="x"></div>
-    <div class="item"><label>Green Beans</label><input type="checkbox" name="green_beans_yes" value="Y"> Y<input type="checkbox" name="green_beans_no" value="N"> N<input type="text" name="green_beans_x" class="input-field" placeholder="x"></div>
-    <div class="item"><label>Avocado</label><input type="checkbox" name="avocado_yes" value="Y"> Y<input type="checkbox" name="avocado_no" value="N"> N<input type="text" name="avocado_x" class="input-field" placeholder="x"></div>
-    <div class="item"><label>Bell Pepper</label><input type="checkbox" name="bell_pepper_yes" value="Y"> Y<input type="checkbox" name="bell_pepper_no" value="N"> N<input type="text" name="bell_pepper_x" class="input-field" placeholder="x"></div>
-
-    <div class="category-header">SEASONING</div>
-    <div class="item"><label>Onion</label><input type="checkbox" name="onion_yes" value="Y"> Y<input type="checkbox" name="onion_no" value="N"> N<input type="text" name="onion_x" class="input-field" placeholder="x"></div>
-    <div class="item"><label>Garlic</label><input type="checkbox" name="garlic_yes" value="Y"> Y<input type="checkbox" name="garlic_no" value="N"> N<input type="text" name="garlic_x" class="input-field" placeholder="x"></div>
-
+<!-- CATEGORY SECTIONS --END -->
     <div class="item">
       <label for="user_email">Your Email</label>
       <input type="email" id="user_email" name="user_email" placeholder="Enter your email" required>
@@ -236,6 +117,60 @@
   </form>
 </div>
 
+
+<script>
+  const groceryData = {
+    "PROTEINS": [
+      "Fish", "Chicken", "Beef", "Pork", "Lamb / Duck", "Eggs"
+    ],
+    "GREEN LEAVES": [
+      "Cabbage", "Bok Choy", "Rainbow Chard", "Kale", "Other"
+    ],
+    "VEGETABLES": [
+      "Carrots / Parsnips", "Celery / Fennel", "Radish", "Tomatoes", "Sweet Potatoes / Potatoes",
+      "Squash", "Zucchini", "Asparagus", "Corn", "Green Peas", "Green Beans", "Avocado", "Bell Pepper"
+    ],
+    "SEASONING": [
+      "Onion", "Garlic"
+    ]
+  };
+
+  const makeOptions = () => {
+    let options = '<option value="">–</option>';
+    for (let i = 1; i <= 10; i++) {
+      options += `<option value="${i}">${i}</option>`;
+    }
+    return options;
+  };
+
+  const formatName = label => label.toLowerCase().replace(/[^a-z0-9]/g, "_");
+
+  const container = document.getElementById("dynamic-grocery-fields");
+
+  for (const [category, items] of Object.entries(groceryData)) {
+    const section = document.createElement("div");
+    section.innerHTML += `<div class="category-header">${category}</div>`;
+
+    items.forEach(label => {
+      const name = formatName(label);
+      section.innerHTML += `
+        <div class="item">
+          <label>${label}</label>
+          <input type="radio" name="${name}" value="Y"> Y
+          <input type="radio" name="${name}" value="N"> N
+          <select name="${name}_x" class="input-field">
+            ${makeOptions()}
+          </select>
+        </div>
+      `;
+    });
+
+    container.appendChild(section);
+  }
+</script>
+
+
+  
 <script>
   // Initialize EmailJS
   emailjs.init("THF4TaFjD5kYnzb9B");
