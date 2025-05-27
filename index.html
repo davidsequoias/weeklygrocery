@@ -157,9 +157,49 @@ select.input-field {
   z-index: 1000; /* ensures it stays above other elements */
 }
     
+.description-text {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 16px;
+  color: #4a4a4a;
+  margin-bottom: 20px;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color:#f9f0e0;
+  color: #4a4a4a;
+  font-family: 'Noto Sans', sans-serif;
+  padding: 10px 20px;
+  z-index: 1000;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 14px; /* smaller by default */
+  box-sizing: border-box;
+  word-break: break-word; /* prevent overflow */
+}
+
+
+
+#date-line, #season-line {
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+#date-line, #season-line {
+  font-size: 14px;
+  line-height: 1.2;
+}
+
 @media screen and (max-width: 600px) {
   .form-container {
-    margin-top: 200px;
+    margin-top: 100px;
     width: auto;
   }
 
@@ -206,11 +246,21 @@ select.input-field {
 </head>
 <body>
 
-<img src="https://cdn.prod.website-files.com/6833f7030192cf8018ce33c3/6834d427b2d5b6a0f014cd9c_3db454bc-11c5-414f-8845-91f4e5f96790.png" class="top-image" alt="Top Banner">
+<div class="top-bar">
+  <div id="date-line"></div>
+  <div id="season-line"></div>
+</div>
+
+
+<img src="https://cdn.prod.website-files.com/6833f7030192cf8018ce33c3/683545d4d519ae1be1ff8a66_ChatGPT%20Image%20May%2027%2C%202025%2C%2012_53_00%20AM.png" class="top-image" alt="Top Banner">
 
 <div class="form-container">
 
   <form id="foodSelectionForm">
+
+<p class="description-text">
+  A simple weekly grocery list. Clean, easy to use, and you can send it to your email anytime.
+</p>
 
 <!-- CATEGORY SECTIONS -->
 <div id="dynamic-grocery-fields"></div>
@@ -231,6 +281,8 @@ select.input-field {
     <button type="submit">Send</button>
   </form>
 </div>
+
+
 
  <div class="grocery-illustration">
   <img src="https://cdn.prod.website-files.com/6833f7030192cf8018ce33c3/6833f97302de03cc7b109ab4_grocery%202.png" alt="Grocery illustration">
@@ -357,6 +409,30 @@ select.input-field {
         alert("Failed to send email. Please try again.");
       });
   });
+</script>
+
+<script>
+  const dateEl = document.getElementById("date-line");
+  const seasonEl = document.getElementById("season-line");
+
+  const today = new Date();
+  const options = { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' };
+  dateEl.textContent = today.toLocaleDateString(undefined, options);
+
+  const month = today.getMonth();
+  let season = "";
+
+  if (month <= 1 || month === 11) {
+    season = "Winter";
+  } else if (month >= 2 && month <= 4) {
+    season = "Spring";
+  } else if (month >= 5 && month <= 7) {
+    season = "Summer";
+  } else {
+    season = "Autumn";
+  }
+
+  seasonEl.textContent = season;
 </script>
 
 
